@@ -5,6 +5,8 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { LiaCommentSolid } from "react-icons/lia";
 import { MdEdit } from "react-icons/md";
 import AddPost from "./AddPost";
+import { memo } from "react";
+
 const PostCard = ({ item }) => {
   return (
     <div className="max-w-[526px] mx-3 bg-white dark:bg-cardDark sm:mx-auto mb-3  flex-col flex gap-3 py-2.5 px-4 divide-y-2 dark:divide-slate-600 rounded-lg">
@@ -71,4 +73,4 @@ const PostCard = ({ item }) => {
   );
 };
 
-export default PostCard;
+export default memo(PostCard);

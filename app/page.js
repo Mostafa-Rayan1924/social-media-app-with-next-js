@@ -11,15 +11,17 @@ export default function Home() {
   const { user } = useContext(UserContextFromRegisteration);
   const { posts, setPosts } = useContext(PostContext);
   let [loading, setLoading] = useState(false);
-
+  let [postPage, setPostPage] = useState(1);
+  let [lastPage, setLastPage] = useState("");
   useEffect(() => {
     async function getData() {
       setLoading(true);
       try {
         const res = await axios.get(
-          "https://tarmeezacademy.com/api/v1/posts?limit=5"
+          `https://tarmeezacademy.com/api/v1/posts?limit=5&page=${postPage}`
         );
-        setPosts(res.data.data);
+        setPosts([...posts, ...res.data.data]);
+        setLastPage(res.data.meta.last_page);
         setLoading(false);
       } catch (err) {
         console.log(err);
@@ -27,9 +29,23 @@ export default function Home() {
       }
     }
     getData();
-  }, [setPosts]);
+  }, [setPosts, postPage]);
+  useEffect(() => {
+    if (postPage > lastPage) return;
+    function handleScroll() {
+      if (
+        window.innerHeight + window.scrollY >=
+        document.body.scrollHeight - 20
+      ) {
+        setPostPage((prev) => prev + 1);
+        window.scrollTo({ x: 0, y: window.scrollY, behavior: "smooth" });
+      }
+    }
+    window.addEventListener("scroll", () => handleScroll());
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [postPage, lastPage]);
 
-  if (loading) return <Loader />;
+  // if (loading) return <Loader />;
 
   const postsMap = posts.map((item) => <PostCard key={item.id} item={item} />);
 
