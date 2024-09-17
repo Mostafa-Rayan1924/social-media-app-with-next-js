@@ -52,16 +52,16 @@ const PostCard = ({ item }) => {
         <p className="text-textSmLight line-clamp-2 mt-3">{item.body}</p>
       </div>
       <div className="flex items-center justify-between gap-2 pt-2">
-        <button className="text-cyan-600 border-2 flex-1 border-cyan-600 py-1 rounded-lg justify-center  flex items-center gap-1 hover:text-white hover:bg-cyan-500 hover:border-transparent">
+        <button className="text-cyan-600 border-2 h-[35px] flex-1 border-cyan-600  rounded-lg justify-center  flex items-center gap-1 hover:text-white hover:bg-cyan-500 hover:border-transparent">
           <LiaCommentSolid />({item.comments_count})
           <p className="hidden sm:flex">comments </p>
         </button>
         {true ? (
           <>
-            <button className="text-red-600 border-2 flex-1 border-red-600 rounded-lg py-1 flex justify-center items-center gap-1 hover:text-white hover:bg-red-500 hover:border-transparent">
+            <button className="text-red-600 border-2 flex-1 h-[35px] border-red-600 rounded-lg  flex justify-center items-center gap-1 hover:text-white hover:bg-red-500 hover:border-transparent">
               <RiDeleteBin6Line /> <p className="hidden sm:flex">Delete</p>
             </button>
-            <button className="text-yellow-600 border-2 flex-1 border-yellow-600 rounded-lg py-1 flex justify-center items-center gap-1 hover:text-white hover:bg-yellow-500 hover:border-transparent">
+            <button className="text-yellow-600 border-2 flex-1 h-[35px] border-yellow-600 rounded-lg  flex justify-center items-center gap-1 hover:text-white hover:bg-yellow-500 hover:border-transparent">
               <MdEdit /> <p className="hidden sm:flex">Edit</p>
             </button>
           </>

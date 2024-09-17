@@ -35,7 +35,7 @@ export default function Home() {
     function handleScroll() {
       if (
         window.innerHeight + window.scrollY >=
-        document.body.scrollHeight - 20
+        document.body.scrollHeight - 100
       ) {
         setPostPage((prev) => prev + 1);
         window.scrollTo({ x: 0, y: window.scrollY, behavior: "smooth" });

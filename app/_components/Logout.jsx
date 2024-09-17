@@ -30,7 +30,7 @@ const Logout = ({ setOpenNav }) => {
 
   return (
     <div className="p-4 ">
-      <AlertDialog className="z-[1000]">
+      <AlertDialog>
         <AlertDialogTrigger asChild>
           <FiLogOut
             size={25}
@@ -41,7 +41,7 @@ const Logout = ({ setOpenNav }) => {
             }}
           />
         </AlertDialogTrigger>
-        <AlertDialogContent>
+        <AlertDialogContent className="z-[1001]">
           <AlertDialogHeader>
             <AlertDialogTitle className="dark:text-white">
               Are you absolutely sure?
