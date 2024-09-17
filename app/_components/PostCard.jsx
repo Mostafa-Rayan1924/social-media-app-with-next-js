@@ -4,6 +4,7 @@ import { LuSubtitles } from "react-icons/lu";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { LiaCommentSolid } from "react-icons/lia";
 import { MdEdit } from "react-icons/md";
+import AddPost from "./AddPost";
 const PostCard = ({ item }) => {
   return (
     <div className="max-w-[526px] mx-3 bg-white dark:bg-cardDark sm:mx-auto mb-3  flex-col flex gap-3 py-2.5 px-4 divide-y-2 dark:divide-slate-600 rounded-lg">
@@ -50,8 +51,8 @@ const PostCard = ({ item }) => {
       </div>
       <div className="flex items-center justify-between gap-2 pt-2">
         <button className="text-cyan-600 border-2 flex-1 border-cyan-600 py-1 rounded-lg justify-center  flex items-center gap-1 hover:text-white hover:bg-cyan-500 hover:border-transparent">
-          <LiaCommentSolid />{" "}
-          <p className="hidden sm:flex">comments ({item.comments_count})</p>
+          <LiaCommentSolid />({item.comments_count})
+          <p className="hidden sm:flex">comments </p>
         </button>
         {true ? (
           <>

@@ -44,29 +44,27 @@ const Signup = () => {
         localStorage.setItem("token", token);
         localStorage.setItem("user", JSON.stringify(user));
         setUser({ token, user });
-        setLoading(false);
         toast.success("Account created successfully");
         formik.resetForm();
         setTimeout(() => {
           router.push("/");
         }, 1500);
       } catch (err) {
-        setLoading(false);
-        console.error(err);
-        // عرض رسالة خطأ للمستخدم بناءً على الرسالة القادمة من السيرفر
         toast.error(err.response?.data?.message || "An error occurred");
+      } finally {
+        setLoading(false);
       }
     },
   });
 
   return (
-    <section className="bg-white rounded-lg dark:bg-darkBg container my-6 py-4">
+    <section className="bg-white rounded-lg dark:bg-cardDark container my-6 py-4">
       <div className="lg:grid lg:min-h-[80vh] lg:grid-cols-12">
         <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
-          <im
+          <img
             alt=""
             src="https://images.unsplash.com/photo-1617195737496-bc30194e3a19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-            className="absolute z-[10] inset-0 h-full w-full object-cover opacity-80"
+            className="absolute  inset-0 h-full w-full object-cover opacity-80"
           />
           <div className="hidden lg:relative lg:block lg:p-12">
             <a className="block text-white" href="#">
@@ -118,11 +116,12 @@ const Signup = () => {
 
             <form
               onSubmit={formik.handleSubmit}
+              disabled={loading}
               className="mt-8 grid grid-cols-6 gap-6">
               <div className="col-span-6 sm:col-span-3">
                 <label
                   htmlFor="FirstName"
-                  className="block text-sm font-medium text-gray-700">
+                  className="block text-sm font-medium text-gray-700 dark:text-textSmDark">
                   UserName
                 </label>
 
@@ -133,11 +132,14 @@ const Signup = () => {
                   onChange={formik.handleChange}
                   value={formik.values.username}
                   onBlur={formik.handleBlur}
-                  className={`mt-1 w-full  outline-none py-1 px-2 border-b-2 ${
+                  disabled={loading}
+                  className={`mt-1 w-full ${
+                    loading ? "cursor-not-allowed opacity-50" : ""
+                  }  outline-none py-1 px-2 border-b-2 ${
                     formik.touched?.username && formik.errors.username
                       ? "border-red-500"
                       : "border-purple-700"
-                  } border-purple-700 bg-white text-sm text-gray-700 shadow-sm`}
+                  } border-purple-700 bg-white dark:bg-cardDark text-sm text-gray-700 shadow-sm`}
                 />
                 <Error formik={formik} nameOfField={"username"} />
               </div>
@@ -145,7 +147,7 @@ const Signup = () => {
               <div className="col-span-6 sm:col-span-3">
                 <label
                   htmlFor="Name"
-                  className="block text-sm font-medium text-gray-700">
+                  className="block text-sm font-medium text-gray-700 dark:text-textSmDark">
                   Name
                 </label>
 
@@ -156,11 +158,14 @@ const Signup = () => {
                   onChange={formik.handleChange}
                   value={formik.values.name}
                   onBlur={formik.handleBlur}
-                  className={`mt-1 w-full  outline-none py-1 px-2 border-b-2 ${
+                  disabled={loading}
+                  className={`mt-1 w-full ${
+                    loading ? "cursor-not-allowed opacity-50" : ""
+                  }  outline-none py-1 px-2 border-b-2 ${
                     formik.touched?.name && formik.errors.name
                       ? "border-red-500"
                       : "border-purple-700"
-                  } border-purple-700 bg-white text-sm text-gray-700 shadow-sm`}
+                  } border-purple-700 bg-white dark:bg-cardDark text-sm text-gray-700 shadow-sm`}
                 />
                 <Error formik={formik} nameOfField={"name"} />
               </div>
@@ -168,7 +173,7 @@ const Signup = () => {
               <div className="col-span-6">
                 <label
                   htmlFor="Email"
-                  className="block text-sm font-medium text-gray-700">
+                  className="block text-sm font-medium text-gray-700 dark:text-textSmDark">
                   Email
                 </label>
 
@@ -179,11 +184,14 @@ const Signup = () => {
                   onChange={formik.handleChange}
                   value={formik.values.email}
                   onBlur={formik.handleBlur}
-                  className={`mt-1 w-full  outline-none py-1 px-2 border-b-2 ${
+                  disabled={loading}
+                  className={`mt-1 w-full ${
+                    loading ? "cursor-not-allowed opacity-50" : ""
+                  }  outline-none py-1 px-2 border-b-2 ${
                     formik.touched?.email && formik.errors.email
                       ? "border-red-500"
                       : "border-purple-700"
-                  } border-purple-700 bg-white text-sm text-gray-700 shadow-sm`}
+                  } border-purple-700 bg-white dark:bg-cardDark text-sm text-gray-700 shadow-sm`}
                 />
                 <Error formik={formik} nameOfField={"email"} />
               </div>
@@ -191,7 +199,7 @@ const Signup = () => {
               <div className="col-span-6 sm:col-span-3">
                 <label
                   htmlFor="Password"
-                  className="block text-sm font-medium text-gray-700">
+                  className="block text-sm font-medium text-gray-700 dark:text-textSmDark">
                   Password
                 </label>
 
@@ -202,11 +210,14 @@ const Signup = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   name="password"
-                  className={`mt-1 w-full  outline-none py-1 px-2 border-b-2 ${
+                  disabled={loading}
+                  className={`mt-1 w-full  ${
+                    loading ? "cursor-not-allowed opacity-50" : ""
+                  } outline-none py-1 px-2 border-b-2 ${
                     formik.touched?.password && formik.errors.password
                       ? "border-red-500"
                       : "border-purple-700"
-                  } border-purple-700 bg-white text-sm text-gray-700 shadow-sm`}
+                  } border-purple-700 bg-white dark:bg-cardDark text-sm text-gray-700 shadow-sm`}
                 />
                 <Error formik={formik} nameOfField={"password"} />
               </div>
@@ -214,7 +225,7 @@ const Signup = () => {
               <div className="col-span-6 sm:col-span-3">
                 <label
                   htmlFor="sendfile"
-                  className="block text-sm font-medium text-gray-700">
+                  className="block text-sm font-medium text-gray-700 dark:text-textSmDark">
                   Upload img
                 </label>
 
@@ -225,20 +236,26 @@ const Signup = () => {
                     formik.setFieldValue("image", event.currentTarget.files[0]);
                   }}
                   name="image"
-                  className="mt-1 w-full py-1 px-2 bg-white text-sm text-gray-700 shadow-sm"
+                  className="mt-1 w-full py-1 px-2 bg-white dark:bg-cardDark text-sm text-gray-700 shadow-sm"
                 />
               </div>
 
               <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
                 <button
                   type="submit"
-                  className="inline-block shrink-0 rounded-md border border-purple-600 bg-purple-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-purple-600 focus:outline-none focus:ring active:text-purple-500">
+                  className={`inline-block ${
+                    loading
+                      ? "border-gray-500 bg-gray-500 cursor-not-allowed opacity-50"
+                      : "border-purple-600 bg-purple-600"
+                  } shrink-0 rounded-md border border-purple-600 bg-purple-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-purple-600 focus:outline-none focus:ring active:text-purple-500`}>
                   {loading ? "Loading..." : "Create an account"}
                 </button>
 
                 <p className="mt-4 text-sm text-gray-500 sm:mt-0">
                   Already have an account?
-                  <Link href="/login" className="text-gray-700 underline">
+                  <Link
+                    href="/login"
+                    className="text-gray-700 dark:text-textSmDark underline">
                     Log in
                   </Link>
                 </p>
