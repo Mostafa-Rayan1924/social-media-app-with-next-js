@@ -6,7 +6,6 @@ import { PostContext } from "./_context/PostsContext";
 import axios from "axios";
 import AddPost from "./_components/AddPost";
 import Loader from "./_components/Loader";
-
 export default function Home() {
   const { user } = useContext(UserContextFromRegisteration);
   const { posts, setPosts } = useContext(PostContext);
@@ -47,7 +46,9 @@ export default function Home() {
 
   // if (loading) return <Loader />;
 
-  const postsMap = posts.map((item) => <PostCard key={item.id} item={item} />);
+  const postsMap = posts.map((item) => (
+    <PostCard key={item.id} item={item} user={user} />
+  ));
 
   return (
     <div className="mt-10">

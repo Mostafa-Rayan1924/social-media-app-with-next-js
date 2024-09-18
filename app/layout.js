@@ -14,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html className="overflow-x-hidden" lang="en">
-      <body className={`${WorkSans.className} bg-lightBg   dark:bg-darkBg`}>
+      <body className={`${WorkSans.className} bg-lightBg    dark:bg-darkBg`}>
         <UserContext>
           <PostsContext>
             <Nav />

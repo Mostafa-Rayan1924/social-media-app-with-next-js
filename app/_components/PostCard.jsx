@@ -5,9 +5,10 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { LiaCommentSolid } from "react-icons/lia";
 import { MdEdit } from "react-icons/md";
 import AddPost from "./AddPost";
-import { memo } from "react";
+import { memo, useContext } from "react";
+import Link from "next/link";
 
-const PostCard = ({ item }) => {
+const PostCard = ({ item, user }) => {
   return (
     <div className="max-w-[526px] mx-3 bg-white dark:bg-cardDark sm:mx-auto mb-3  flex-col flex gap-3 py-2.5 px-4 divide-y-2 dark:divide-slate-600 rounded-lg">
       <div className="flex items-center justify-between   ">
@@ -31,7 +32,7 @@ const PostCard = ({ item }) => {
           </span>
         </div>
       </div>
-      <div className="w-full ">
+      <Link href={`/posts/${item.id}`} className="w-full ">
         <Image
           src={
             Object.keys(item.image).length === 0 ? "/images/no.jpg" : item.image
@@ -50,13 +51,15 @@ const PostCard = ({ item }) => {
           {item.title}
         </h2>
         <p className="text-textSmLight line-clamp-2 mt-3">{item.body}</p>
-      </div>
+      </Link>
       <div className="flex items-center justify-between gap-2 pt-2">
-        <button className="text-cyan-600 border-2 h-[35px] flex-1 border-cyan-600  rounded-lg justify-center  flex items-center gap-1 hover:text-white hover:bg-cyan-500 hover:border-transparent">
+        <Link
+          href={`/posts/${item.id}`}
+          className="text-cyan-600 border-2 h-[35px] flex-1 border-cyan-600  rounded-lg justify-center  flex items-center gap-1 hover:text-white hover:bg-cyan-500 hover:border-transparent">
           <LiaCommentSolid />({item.comments_count})
           <p className="hidden sm:flex">comments </p>
-        </button>
-        {true ? (
+        </Link>
+        {user?.user?.id == item?.author.id ? (
           <>
             <button className="text-red-600 border-2 flex-1 h-[35px] border-red-600 rounded-lg  flex justify-center items-center gap-1 hover:text-white hover:bg-red-500 hover:border-transparent">
               <RiDeleteBin6Line /> <p className="hidden sm:flex">Delete</p>

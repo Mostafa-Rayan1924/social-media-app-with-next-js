@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -78,23 +79,23 @@ const AddPost = () => {
             <IoIosAddCircle />
           </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[525px]">
+        <DialogContent className="sm:max-w-[525px] ">
           <DialogHeader>
-            <DialogTitle>Add New Post</DialogTitle>
+            <DialogTitle className="dark:text-white">Add New Post</DialogTitle>
             <DialogDescription>
               Share Your thoughts with the world
             </DialogDescription>
           </DialogHeader>
           <form
             onSubmit={formik.handleSubmit}
-            className="grid gap-6 py-6 px-4 bg-white rounded-lg"
+            className="grid gap-6 py-6 px-4 bg-white dark:bg-black rounded-lg"
             disabled={loading} // disable the form while loading
           >
             {/* Title Input */}
             <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 items-center">
               <label
                 htmlFor="tit"
-                className="text-right sm:text-left font-bold text-sm sm:text-base capitalize text-gray-700">
+                className="text-right  dark:text-textSmDark sm:text-left font-bold text-sm sm:text-base capitalize text-gray-700">
                 Title
               </label>
               <input
@@ -104,7 +105,7 @@ const AddPost = () => {
                 onBlur={formik.handleBlur}
                 name="title"
                 placeholder="Enter title"
-                className={`col-span-3 border-2 border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-500 outline-none transition-all duration-300 ${
+                className={`col-span-3 border-2 dark:bg-black dark:border-slate-800 dark:text-white border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-500 outline-none transition-all duration-300 ${
                   loading ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 disabled={loading}
@@ -116,7 +117,7 @@ const AddPost = () => {
             <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 items-start">
               <label
                 htmlFor="bo"
-                className="text-right sm:text-left font-bold text-sm sm:text-base capitalize text-gray-700">
+                className="text-right dark:text-textSmDark sm:text-left font-bold text-sm sm:text-base capitalize text-gray-700">
                 Body
               </label>
               <textarea
@@ -126,7 +127,7 @@ const AddPost = () => {
                 id="bo"
                 name="body"
                 placeholder="Enter your content"
-                className={`col-span-3 border-2 border-gray-300 rounded-md p-2 h-[150px] resize-none focus:ring-2 focus:ring-blue-500 outline-none transition-all duration-300 ${
+                className={`col-span-3 border-2 dark:bg-black dark:border-slate-800 dark:text-white border-gray-300 rounded-md p-2 h-[150px] resize-none focus:ring-2 focus:ring-blue-500 outline-none transition-all duration-300 ${
                   loading ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 disabled={loading}
@@ -138,7 +139,7 @@ const AddPost = () => {
             <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 items-center">
               <label
                 htmlFor="file"
-                className="text-right sm:text-left font-bold text-sm sm:text-base capitalize text-gray-700">
+                className="text-right dark:text-textSmDark sm:text-left font-bold text-sm sm:text-base capitalize text-gray-700">
                 Add Image
               </label>
               <div className="col-span-3">
@@ -177,7 +178,7 @@ const AddPost = () => {
 
             {/* Submit Button */}
             <button
-              className={`bg-black text-white px-6 py-2 rounded-lg sm:w-fit sm:block sm:ml-auto ${
+              className={`bg-black text-white dark:text-black dark:bg-white px-6 py-2 rounded-lg sm:w-fit sm:block sm:ml-auto ${
                 loading ? "opacity-50 cursor-not-allowed" : ""
               }`}
               type="submit"
