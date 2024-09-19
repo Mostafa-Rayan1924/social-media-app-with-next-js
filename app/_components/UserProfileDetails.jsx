@@ -82,9 +82,6 @@ const UserProfileDetails = ({ userId }) => {
           </div>
         </dl>
       </div>
-      <h2 className="text-center my-10 text-3xl sm:text-4xl font-bold ">
-        {details.length > 0 ? details?.username : ""}
-      </h2>
     </div>
   );
 };
