@@ -52,7 +52,7 @@ const Comments = ({ comments, postId }) => {
   let commentsMap = commentsToShow?.map((item) => {
     return (
       <div
-        className="hover:bg-slate-100 dark:hover:bg-slate-800   hover:ps-2 transition-all duration-200 rounded-lg"
+        className="hover:bg-slate-100  dark:hover:bg-slate-800   hover:ps-2 transition-all duration-200 rounded-lg"
         key={item.id}>
         <div className="flex sm:flex-row flex-col sm:justify-start justify-center text-center sm:text-start items-center gap-2 py-4 border-b-2 dark:border-b-slate-800 border-[#f5f5f5]">
           <div className="flex items-center flex-wrap gap-2">
@@ -84,7 +84,7 @@ const Comments = ({ comments, postId }) => {
       <h2 className="text-3xl font-bold mb-5 dark:text-textSmDark">
         Comments Of Post
       </h2>
-      <div className="bg-white p-4 rounded-lg dark:bg-cardDark dark:border-slate-800">
+      <div className="bg-white p-4 rounded-lg dark:bg-cardDark dark:text-textSmDark dark:border-slate-800">
         {commentsState.length > 0 ? commentsMap : "No Comments yet"}
       </div>
 
