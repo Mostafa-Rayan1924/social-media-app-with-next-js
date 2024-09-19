@@ -19,7 +19,9 @@ const Nav = () => {
         </h2>
       </Link>
       {Object.keys(user).length > 0 && (
-        <div className="flex items-center gap-2 flex-1 justify-center">
+        <Link
+          href={`/profile/${user.user.id}`}
+          className="flex items-center gap-2 flex-1 justify-center">
           <Image
             src={
               Object.keys(user.user.profile_image).length == 0
@@ -32,7 +34,7 @@ const Nav = () => {
             height={50}
           />
           <h2 className="dark:text-textSmDark font-bold">{user.user.name}</h2>
-        </div>
+        </Link>
       )}
       <div onClick={() => setOpenNav((prev) => !prev)}>
         <FaBarsStaggered className="cursor-pointer dark:text-white" size={25} />

@@ -2,12 +2,15 @@ import Image from "next/image";
 import { RiTimeFill } from "react-icons/ri";
 import { LuSubtitles } from "react-icons/lu";
 import { LiaCommentSolid } from "react-icons/lia";
+import Link from "next/link";
 
 const PostDetailsCard = ({ item }) => {
   return (
     <div className="max-w-[526px] sm:max-w-full bg-white dark:bg-cardDark  mb-3  flex-col flex gap-3 py-2.5 px-4 divide-y-2 dark:divide-slate-600 rounded-lg">
       <div className="flex items-center justify-between   ">
-        <div className="flex items-center gap-2">
+        <Link
+          href={`/profile/${item.author.id}`}
+          className="flex items-center gap-2">
           <Image
             src={
               Object.keys(item.author.profile_image).length === 0
@@ -20,7 +23,7 @@ const PostDetailsCard = ({ item }) => {
             height={50}
           />
           <h3 className="dark:text-textSmDark">{item.author.username}</h3>
-        </div>
+        </Link>
         <div>
           <span className="text-[12px] flex items-center gap-1 dark:text-textSmDark">
             <RiTimeFill color="#8046fd" size={24} /> {item.created_at}

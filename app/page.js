@@ -5,7 +5,6 @@ import { UserContextFromRegisteration } from "./_context/UserContext";
 import { PostContext } from "./_context/PostsContext";
 import axios from "axios";
 import AddPost from "./_components/AddPost";
-import Loader from "./_components/Loader";
 export default function Home() {
   const { user } = useContext(UserContextFromRegisteration);
   const { posts, setPosts } = useContext(PostContext);

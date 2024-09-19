@@ -19,7 +19,7 @@ const PostDetails = async ({ params }) => {
 
   return (
     <div className="my-10 container  dark:bg-darkBg ">
-      <h2 className="mb-10 text-3xl dark:text-textSmDark font-bold uppercase">
+      <h2 className="mb-10 text-xl sm:text-3xl dark:text-textSmDark font-bold uppercase">
         {data.author.username}'S Post
       </h2>
       <PostDetailsCard item={data} />

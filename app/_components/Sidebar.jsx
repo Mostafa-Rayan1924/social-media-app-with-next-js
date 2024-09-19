@@ -1,3 +1,4 @@
+"use client";
 import { IoLogIn, IoPersonCircleOutline, IoClose } from "react-icons/io5";
 import Logout from "../_components/Logout";
 import { useContext, useEffect } from "react";
@@ -5,9 +6,12 @@ import { UserContextFromRegisteration } from "../_context/UserContext";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const Sidebar = ({ setOpenNav }) => {
   const { user } = useContext(UserContextFromRegisteration);
+  let url = window.location.pathname;
+
   useEffect(() => {
     document.documentElement
       .querySelector(".sidebar")
@@ -36,22 +40,26 @@ const Sidebar = ({ setOpenNav }) => {
         </Link>
         <ul className="mt-6 space-y-1">
           <li>
-            <a
-              href="#"
-              className="block rounded-lg bg-gray-100 dark:bg-slate-800 px-4 py-2 text-sm font-medium text-textSmLight dark:text-textSmDark">
+            <Link
+              href="/"
+              className={`block ${
+                !url.includes("profile") ? "bg-gray-100 dark:bg-slate-800" : ""
+              } rounded-lg   px-4 py-2 text-sm font-medium text-textSmLight dark:text-textSmDark`}>
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
-              className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:dark:bg-slate-800 dark:text-textSmDark hover:text-textSmLight">
+            <Link
+              href={`/profile/${user?.user?.id}`}
+              className={`block ${
+                url.includes("profile") ? "bg-gray-100 dark:bg-slate-800" : ""
+              } rounded-lg   px-4 py-2 text-sm font-medium text-textSmLight dark:text-textSmDark`}>
               Profile
-            </a>
+            </Link>
           </li>
           <li>
             {/* IF USER LOGGED IN WE DISPLAY THIS OR ELSE DISPLAY REGISTRATION */}
-            {user.token ? (
+            {user?.token ? (
               <h1 className="text-center dark:text-white mt-5 text-2xl capitalize">
                 Welcome to Rayanco
               </h1>
@@ -84,7 +92,7 @@ const Sidebar = ({ setOpenNav }) => {
         <div className="sticky flex items-center justify-between inset-x-0 bottom-0 border-t border-gray-100 dark:border-slate-900">
           <a
             href="#"
-            className="flex items-center gap-2 bg-white dark:bg-slate-800 dark:hover:bg-slate-800 p-4 hover:bg-gray-50">
+            className="flex items-center gap-2 bg-white dark:bg-cardDark dark:hover:bg-slate-800 p-4 hover:bg-gray-50">
             <img
               alt="profile"
               src={
