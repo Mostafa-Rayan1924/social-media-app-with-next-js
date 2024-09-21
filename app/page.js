@@ -5,6 +5,7 @@ import { UserContextFromRegisteration } from "./_context/UserContext";
 import { PostContext } from "./_context/PostsContext";
 import axios from "axios";
 import AddPost from "./_components/AddPost";
+import Slider from "./_components/Slider";
 export default function Home() {
   const { user } = useContext(UserContextFromRegisteration);
   const { posts, setPosts } = useContext(PostContext);
@@ -51,6 +52,7 @@ export default function Home() {
 
   return (
     <div className="mt-10">
+      <Slider />
       {postsMap}
       {user?.token && <AddPost />}
     </div>

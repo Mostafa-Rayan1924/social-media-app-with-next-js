@@ -9,3 +9,28 @@
 body.dark {
   background-color: #0e1217;
 }
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: #f3f3f3 !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  color: #12161c !important;
+}
+body.dark .swiper-button-next,
+body.dark .swiper-button-prev {
+  background-color: #0e1217 !important;
+  color: #a8b3cf !important;
+}
+@media (max-width: 767px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: ""; /* Customize icon or use an image */
+  font-size: 20px !important;
+  font-weight: bold;
+}

@@ -1,13 +1,11 @@
 "use client";
 import { createContext, useEffect, useState } from "react";
 
-// إنشاء السياق
 export let ModeContext = createContext();
 
 const ModeProvider = ({ children }) => {
-  let [mode, setMode] = useState(localStorage.getItem("mode")); // تعيين الوضع الافتراضي
+  let [mode, setMode] = useState(localStorage.getItem("mode"));
 
-  // تحديث الكلاس الخاص بالوضع في body عند تغيير الوضع
   useEffect(() => {
     if (mode === "dark") {
       document.body.classList.add("dark");
@@ -17,7 +15,7 @@ const ModeProvider = ({ children }) => {
       setMode("light");
     }
     if (typeof window !== "undefined") {
-      localStorage.setItem("mode", mode); // تخزين الوضع في localStorage
+      localStorage.setItem("mode", mode);
     }
   }, [mode]);
 
