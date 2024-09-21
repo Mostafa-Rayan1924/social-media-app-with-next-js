@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { RiTimeFill } from "react-icons/ri";
 import { LuSubtitles } from "react-icons/lu";
-import { RiDeleteBin6Line } from "react-icons/ri";
+
 import { LiaCommentSolid } from "react-icons/lia";
-import { MdEdit } from "react-icons/md";
-import AddPost from "./AddPost";
 import { memo, useContext } from "react";
 import Link from "next/link";
+import DeletePost from "./DeletePost";
+import EditPost from "./EditPost";
 
 const PostCard = ({ item, user }) => {
   return (
@@ -63,12 +63,12 @@ const PostCard = ({ item, user }) => {
         </Link>
         {user?.user?.id == item?.author.id ? (
           <>
-            <button className="text-red-600 border-2 flex-1 h-[35px] border-red-600 rounded-lg  flex justify-center items-center gap-1 hover:text-white hover:bg-red-500 hover:border-transparent">
-              <RiDeleteBin6Line /> <p className="hidden sm:flex">Delete</p>
-            </button>
-            <button className="text-yellow-600 border-2 flex-1 h-[35px] border-yellow-600 rounded-lg  flex justify-center items-center gap-1 hover:text-white hover:bg-yellow-500 hover:border-transparent">
-              <MdEdit /> <p className="hidden sm:flex">Edit</p>
-            </button>
+            <div className="flex-1">
+              <DeletePost itemId={item.id} />
+            </div>
+            <div className="flex-1">
+              <EditPost itemId={item.id} />
+            </div>
           </>
         ) : (
           ""

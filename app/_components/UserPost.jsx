@@ -3,12 +3,14 @@ import { useContext, useEffect, useState } from "react";
 import { UserContextFromRegisteration } from "../_context/UserContext";
 import axios from "axios";
 import PostCard from "./PostCard";
+import { PostContext } from "../_context/PostsContext";
 
 const UserPost = ({ userId }) => {
-  let [userPosts, setUserPosts] = useState([]);
-  const { user } = useContext(UserContextFromRegisteration);
+  // let [userPosts, setUserPosts] = useState([]);
+  const { posts, setPosts } = useContext(PostContext);
 
-  let userPostMap = userPosts.map((post) => {
+  const { user } = useContext(UserContextFromRegisteration);
+  let userPostMap = posts.map((post) => {
     return <PostCard item={post} user={user} />;
   });
   useEffect(() => {
@@ -17,22 +19,25 @@ const UserPost = ({ userId }) => {
         let res = await axios.get(
           `https://tarmeezacademy.com/api/v1/users/${userId}/posts`
         );
-        setUserPosts(res.data.data);
+        setPosts(res.data.data.reverse());
       } catch (err) {
         console.log(err);
       }
     };
     getData();
-  }, []);
+    return () => {
+      setPosts([]);
+    };
+  }, [userId]);
 
   return (
     <div>
-      {userPosts.length > 0 ? (
+      {posts.length > 0 ? (
         <div>
           <h2 className="my-10 text-xl sm:text-3xl dark:text-textSmDark font-bold text-center capitalize">
-            {user?.user?.id == userPosts[0]?.author?.id
+            {user?.user?.id == posts[0]?.author?.id
               ? "Your Posts"
-              : userPosts[0]?.author?.username + "s Posts"}
+              : posts[0]?.author?.username + "s Posts"}
           </h2>
           {userPostMap}
         </div>

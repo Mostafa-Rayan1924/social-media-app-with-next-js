@@ -6,12 +6,26 @@ import { UserContextFromRegisteration } from "../_context/UserContext";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
+import { MdOutlineDarkMode } from "react-icons/md";
+import { MdOutlineLightMode } from "react-icons/md";
+import { ModeContext } from "../_context/ModeProvider";
 
 const Sidebar = ({ setOpenNav }) => {
   const { user } = useContext(UserContextFromRegisteration);
   let url = window.location.pathname;
+  let { mode, setMode } = useContext(ModeContext);
 
+  let handleMode = () => {
+    if (mode === "light") {
+      setMode("dark");
+      document.body.classList.add("dark");
+      localStorage.setItem("mode", "dark");
+    } else {
+      setMode("light");
+      document.body.classList.remove("dark");
+      localStorage.setItem("mode", "light");
+    }
+  };
   useEffect(() => {
     document.documentElement
       .querySelector(".sidebar")
@@ -56,6 +70,18 @@ const Sidebar = ({ setOpenNav }) => {
               } rounded-lg   px-4 py-2 text-sm font-medium text-textSmLight dark:text-textSmDark`}>
               Profile
             </Link>
+          </li>
+          <li
+            onClick={handleMode}
+            className="px-4 cursor-pointer flex items-center gap-2 py-2 text-sm font-medium text-textSmLight dark:text-textSmDark">
+            <p>Mode</p>
+            <p>
+              {mode === "light" ? (
+                <MdOutlineDarkMode size={25} color="#8046fd" />
+              ) : (
+                <MdOutlineLightMode size={25} color="#8046fd" />
+              )}
+            </p>
           </li>
           <li>
             {/* IF USER LOGGED IN WE DISPLAY THIS OR ELSE DISPLAY REGISTRATION */}

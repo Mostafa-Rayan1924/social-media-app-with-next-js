@@ -2,10 +2,13 @@
 
 import axios from "axios";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { PostContext } from "../_context/PostsContext";
 
 const UserProfileDetails = ({ userId }) => {
   let [details, setDetails] = useState({});
+  const { posts, setPosts } = useContext(PostContext);
+
   useEffect(() => {
     let getData = async () => {
       try {
@@ -18,7 +21,7 @@ const UserProfileDetails = ({ userId }) => {
       }
     };
     getData();
-  }, []);
+  }, [posts]);
 
   return (
     <div className="container mt-10  ">

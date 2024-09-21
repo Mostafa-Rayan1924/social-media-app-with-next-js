@@ -3,6 +3,7 @@ import "./globals.css";
 import Nav from "@/app/_util/Nav";
 import UserContext from "./_context/UserContext";
 import PostsContext from "./_context/PostsContext";
+import ModeProvider from "./_context/ModeProvider";
 
 const WorkSans = Work_Sans({ subsets: ["latin"], weights: ["400", "700"] });
 
@@ -14,13 +15,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html className="overflow-x-hidden" lang="en">
-      <body className={`${WorkSans.className} bg-lightBg    dark:bg-darkBg`}>
-        <UserContext>
-          <PostsContext>
-            <Nav />
-            {children}
-          </PostsContext>
-        </UserContext>
+      <body className={`${WorkSans.className}  bg-lightBg   `}>
+        <ModeProvider>
+          <UserContext>
+            <PostsContext>
+              <Nav />
+              {children}
+            </PostsContext>
+          </UserContext>
+        </ModeProvider>
       </body>
     </html>
   );
