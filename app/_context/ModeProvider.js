@@ -4,18 +4,28 @@ import { createContext, useEffect, useState } from "react";
 export let ModeContext = createContext();
 
 const ModeProvider = ({ children }) => {
-  let [mode, setMode] = useState(localStorage.getItem("mode"));
+  let [mode, setMode] = useState(null);
 
   useEffect(() => {
-    if (mode === "dark") {
+    // Ensure localStorage is accessed on the client-side
+    const savedMode = localStorage.getItem("mode") || "light";
+    setMode(savedMode);
+
+    if (savedMode === "dark") {
       document.body.classList.add("dark");
-      setMode("dark");
     } else {
       document.body.classList.remove("dark");
-      setMode("light");
     }
-    if (typeof window !== "undefined") {
+  }, []);
+
+  useEffect(() => {
+    if (mode) {
       localStorage.setItem("mode", mode);
+      if (mode === "dark") {
+        document.body.classList.add("dark");
+      } else {
+        document.body.classList.remove("dark");
+      }
     }
   }, [mode]);
 
