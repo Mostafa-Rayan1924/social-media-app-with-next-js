@@ -12,12 +12,12 @@ const Nav = () => {
 
   return (
     <header className="flex items-center justify-between container bg-white dark:bg-cardDark rounded-b-lg shadow-md py-3">
-      <Link href="/" className="flex items-center gap-2">
+      <a href="/" className="flex items-center gap-2">
         <Image src="/images/logo.svg" alt="logo" width={70} height={50} />
         <h2 className="text-[#8046fd] font-bold hidden text-2xl sm:flex">
           Rayanco
         </h2>
-      </Link>
+      </a>
       {Object.keys(user).length > 0 && (
         <Link
           href={`/profile/${user.user.id}`}

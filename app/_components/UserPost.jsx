@@ -4,15 +4,16 @@ import { UserContextFromRegisteration } from "../_context/UserContext";
 import axios from "axios";
 import PostCard from "./PostCard";
 import { PostContext } from "../_context/PostsContext";
+import { useRouter } from "next/navigation";
+import ProtectedAuth from "./ProtectedAuth";
 
 const UserPost = ({ userId }) => {
-  // let [userPosts, setUserPosts] = useState([]);
   const { posts, setPosts } = useContext(PostContext);
-
   const { user } = useContext(UserContextFromRegisteration);
   let userPostMap = posts.map((post) => {
     return <PostCard item={post} user={user} />;
   });
+
   useEffect(() => {
     let getData = async () => {
       try {
@@ -32,6 +33,7 @@ const UserPost = ({ userId }) => {
 
   return (
     <div>
+      <ProtectedAuth />
       {posts.length > 0 ? (
         <div>
           <h2 className="my-10 text-xl sm:text-3xl dark:text-textSmDark font-bold text-center capitalize">

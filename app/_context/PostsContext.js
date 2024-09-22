@@ -5,7 +5,6 @@ export let PostContext = createContext();
 
 const PostsContext = ({ children }) => {
   let [posts, setPosts] = useState([]);
-
   return (
     <PostContext.Provider value={{ posts, setPosts }}>
       {children}

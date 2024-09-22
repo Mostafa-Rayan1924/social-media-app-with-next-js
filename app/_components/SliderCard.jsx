@@ -14,7 +14,7 @@ const SliderCard = ({ user }) => {
         height={55}
         className="rounded-full  aspect-square object-cover border-gray-200 dark:border-slate-700 border-4"
       />
-      <h2 className="font-bold text-center dark:text-textSmDark truncate text-wrap text-sm pb-1 pl-1">
+      <h2 className="font-bold text-center dark:text-textSmDark max-w-[99%] break-words text-sm pb-1 pl-1">
         {user.username}
       </h2>
     </Link>

@@ -12,6 +12,7 @@ export default function Home() {
   let [loading, setLoading] = useState(false);
   let [postPage, setPostPage] = useState(1);
   let [lastPage, setLastPage] = useState("");
+
   useEffect(() => {
     async function getData() {
       setLoading(true);
@@ -28,7 +29,7 @@ export default function Home() {
       }
     }
     getData();
-  }, [setPosts, postPage]);
+  }, [postPage, setPosts]);
   useEffect(() => {
     if (postPage > lastPage) return;
     function handleScroll() {
@@ -44,8 +45,6 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [postPage, lastPage]);
 
-  // if (loading) return <Loader />;
-
   const postsMap = posts.map((item) => (
     <PostCard key={item.id} item={item} user={user} />
   ));
@@ -53,7 +52,13 @@ export default function Home() {
   return (
     <div className="mt-10">
       <Slider />
-      {postsMap}
+      {posts.length > 0 ? (
+        postsMap
+      ) : (
+        <p className="text-center grid place-items-center text-4xl dark:text-white">
+          No posts
+        </p>
+      )}
       {user?.token && <AddPost />}
     </div>
   );

@@ -13,7 +13,7 @@ const PostCard = ({ item, user }) => {
     <div className="max-w-[526px] mx-3 bg-white dark:bg-cardDark sm:mx-auto mb-3  flex-col flex gap-3 py-2.5 px-4 divide-y-2 dark:divide-slate-600 rounded-lg">
       <div className="flex items-center justify-between   ">
         <Link
-          href={`/profile/${item.author.id}`}
+          href={`/profile/${item?.author?.id}`}
           className="flex items-center gap-2">
           <Image
             src={
@@ -57,7 +57,7 @@ const PostCard = ({ item, user }) => {
       <div className="flex items-center justify-between gap-2 pt-2">
         <Link
           href={`/posts/${item.id}`}
-          className="text-cyan-600 border-2 h-[35px] flex-1 border-cyan-600  rounded-lg justify-center  flex items-center gap-1 hover:text-white hover:bg-cyan-500 hover:border-transparent">
+          className="text-cyan-600 border-2 h-[35px] flex-1 border-cyan-600  rounded-lg justify-center  flex items-center gap-1 hover:text-white hover:bg-cyan-500 transition-all duration-300 hover:border-transparent">
           <LiaCommentSolid />({item.comments_count})
           <p className="hidden sm:flex">comments </p>
         </Link>

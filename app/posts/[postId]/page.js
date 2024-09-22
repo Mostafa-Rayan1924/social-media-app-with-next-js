@@ -1,5 +1,6 @@
 import Comments from "@/app/_components/Comments";
 import PostDetailsCard from "@/app/_components/PostDetailsCard";
+import ProtectedAuth from "@/app/_components/ProtectedAuth";
 import axios from "axios";
 
 const PostDetails = async ({ params }) => {
@@ -15,10 +16,10 @@ const PostDetails = async ({ params }) => {
   } catch (err) {
     console.log(err);
   }
-  console.log(data.comments);
 
   return (
     <div className="my-10  container  dark:bg-darkBg ">
+      <ProtectedAuth />
       <h2 className="mb-10  text-xl sm:text-3xl dark:text-textSmDark font-bold uppercase">
         {data.author.username}'S Post
       </h2>

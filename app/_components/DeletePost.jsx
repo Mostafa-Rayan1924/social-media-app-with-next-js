@@ -38,7 +38,7 @@ const DeletePost = ({ itemId }) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <button className="text-red-600 border-2  h-[35px] border-red-600 rounded-lg w-full  flex justify-center items-center gap-1 hover:text-white hover:bg-red-500 hover:border-transparent">
+        <button className="text-red-600 border-2 transition-all duration-300  h-[35px] border-red-600 rounded-lg w-full  flex justify-center items-center gap-1 hover:text-white hover:bg-red-500 hover:border-transparent">
           <RiDeleteBin6Line /> <p className="hidden sm:flex">Delete</p>
         </button>
       </AlertDialogTrigger>

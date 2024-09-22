@@ -49,18 +49,18 @@ const Sidebar = ({ setOpenNav }) => {
       </div>
       {/* Sidebar Content */}
       <div className="mt-10 px-4 py-6">
-        <Link href={"/"}>
+        <a href={"/"}>
           <Image src="/images/logo.svg" alt="logo" width={70} height={50} />
-        </Link>
+        </a>
         <ul className="mt-6 space-y-1">
           <li>
-            <Link
+            <a
               href="/"
               className={`block ${
                 !url.includes("profile") ? "bg-gray-100 dark:bg-slate-800" : ""
               } rounded-lg   px-4 py-2 text-sm font-medium text-textSmLight dark:text-textSmDark`}>
               Home
-            </Link>
+            </a>
           </li>
           <li>
             <Link

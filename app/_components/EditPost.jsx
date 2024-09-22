@@ -91,7 +91,7 @@ const EditPost = ({ itemId }) => {
         <button
           onClick={handleUploadDataToUpdate}
           className="text-yellow-600 
-         border-2  h-[35px] border-yellow-600 w-full rounded-lg  flex justify-center items-center  gap-1 hover:text-white hover:bg-yellow-500 hover:border-transparent">
+         border-2  h-[35px] border-yellow-600 transition-all duration-300 w-full rounded-lg  flex justify-center items-center  gap-1 hover:text-white hover:bg-yellow-500 hover:border-transparent">
           <MdEdit /> <p className="hidden sm:flex">Edit</p>
         </button>
       </DialogTrigger>

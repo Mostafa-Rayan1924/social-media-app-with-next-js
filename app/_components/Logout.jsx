@@ -34,7 +34,7 @@ const Logout = ({ setOpenNav }) => {
         <AlertDialogTrigger asChild>
           <FiLogOut
             size={25}
-            className="hover:text-red-600 dark:text-white"
+            className="hover:text-red-600 cursor-pointer dark:text-white"
             onClick={(e) => {
               e.stopPropagation();
               setOpenNav(true);

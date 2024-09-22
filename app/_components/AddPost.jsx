@@ -42,6 +42,7 @@ const AddPost = () => {
         }
       );
       setPosts([res.data.data, ...posts]);
+      window.scrollTo({ top: 0, behavior: "smooth" });
       toast.success("Post created successfully");
     } catch (err) {
       toast.error(err.response?.data?.message);
