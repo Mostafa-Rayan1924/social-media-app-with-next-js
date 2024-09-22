@@ -27,7 +27,7 @@ const AddPost = () => {
     let formData = new FormData();
     formData.append("title", formik.values.title);
     formData.append("body", formik.values.body);
-    if (formik.values.imgage) {
+    if (formik.values.image) {
       formData.append("image", formik.values.image);
     }
 

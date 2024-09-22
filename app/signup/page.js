@@ -140,7 +140,7 @@ const Signup = () => {
                     formik.touched?.username && formik.errors.username
                       ? "border-red-500"
                       : "border-purple-700"
-                  } border-purple-700 bg-white dark:bg-cardDark text-sm text-gray-700 shadow-sm`}
+                  } border-purple-700 bg-white dark:bg-cardDark text-sm text-gray-700 dark:text-white shadow-sm`}
                 />
                 <Error formik={formik} nameOfField={"username"} />
               </div>
@@ -166,7 +166,7 @@ const Signup = () => {
                     formik.touched?.name && formik.errors.name
                       ? "border-red-500"
                       : "border-purple-700"
-                  } border-purple-700 bg-white dark:bg-cardDark text-sm text-gray-700 shadow-sm`}
+                  } border-purple-700 bg-white dark:bg-cardDark text-sm dark:text-white text-gray-700 shadow-sm`}
                 />
                 <Error formik={formik} nameOfField={"name"} />
               </div>
@@ -192,7 +192,7 @@ const Signup = () => {
                     formik.touched?.email && formik.errors.email
                       ? "border-red-500"
                       : "border-purple-700"
-                  } border-purple-700 bg-white dark:bg-cardDark text-sm text-gray-700 shadow-sm`}
+                  } border-purple-700 bg-white dark:bg-cardDark text-sm dark:text-white text-gray-700 shadow-sm`}
                 />
                 <Error formik={formik} nameOfField={"email"} />
               </div>
@@ -218,7 +218,7 @@ const Signup = () => {
                     formik.touched?.password && formik.errors.password
                       ? "border-red-500"
                       : "border-purple-700"
-                  } border-purple-700 bg-white dark:bg-cardDark text-sm text-gray-700 shadow-sm`}
+                  } border-purple-700 bg-white dark:bg-cardDark text-sm dark:text-white text-gray-700 shadow-sm`}
                 />
                 <Error formik={formik} nameOfField={"password"} />
               </div>

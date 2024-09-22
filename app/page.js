@@ -6,6 +6,7 @@ import { PostContext } from "./_context/PostsContext";
 import axios from "axios";
 import AddPost from "./_components/AddPost";
 import Slider from "./_components/Slider";
+import Loader from "./_components/Loader";
 export default function Home() {
   const { user } = useContext(UserContextFromRegisteration);
   const { posts, setPosts } = useContext(PostContext);
@@ -52,13 +53,7 @@ export default function Home() {
   return (
     <div className="mt-10">
       <Slider />
-      {posts.length > 0 ? (
-        postsMap
-      ) : (
-        <p className="text-center grid place-items-center text-4xl dark:text-white">
-          No posts
-        </p>
-      )}
+      {posts.length > 0 ? postsMap : <Loader />}
       {user?.token && <AddPost />}
     </div>
   );

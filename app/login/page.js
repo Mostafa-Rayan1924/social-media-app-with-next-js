@@ -132,7 +132,7 @@ const Login = () => {
                       : "border-purple-700"
                   } border-purple-700 ${
                     loading ? "cursor-not-allowed opacity-50" : ""
-                  }  bg-white dark:bg-cardDark text-sm text-gray-700 shadow-sm`}
+                  }  bg-white dark:bg-cardDark text-sm dark:text-white text-gray-700 shadow-sm`}
                 />
                 <Error formik={formik} nameOfField={"username"} />
               </div>
@@ -158,7 +158,7 @@ const Login = () => {
                       : "border-purple-700"
                   } ${
                     loading ? "cursor-not-allowed opacity-50" : ""
-                  } border-purple-700 bg-white dark:bg-cardDark text-sm text-gray-700 shadow-sm`}
+                  } border-purple-700 bg-white dark:text-white dark:bg-cardDark text-sm text-gray-700 shadow-sm`}
                 />
                 <Error formik={formik} nameOfField={"password"} />
               </div>
