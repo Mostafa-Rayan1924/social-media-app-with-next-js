@@ -78,7 +78,7 @@ const Signup = () => {
               />
             </a>
 
-            <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+            <h2 className="mt-6 text-2xl font-bold text-white dark:text-textSmDark sm:text-3xl md:text-4xl">
               Welcome to Rayanco 🦑
             </h2>
 
