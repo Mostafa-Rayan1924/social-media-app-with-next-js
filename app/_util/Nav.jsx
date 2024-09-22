@@ -21,7 +21,7 @@ const Nav = () => {
       {Object.keys(user).length > 0 && (
         <Link
           href={`/profile/${user.user.id}`}
-          className="flex items-center gap-2 flex-1 justify-center">
+          className="hidden sm:flex  items-center gap-2 flex-1 justify-center">
           <Image
             src={
               Object.keys(user.user.profile_image).length == 0

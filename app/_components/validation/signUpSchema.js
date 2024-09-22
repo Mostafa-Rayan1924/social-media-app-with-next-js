@@ -10,5 +10,4 @@ export let signUpSchema = yup.object().shape({
     .email("Enter a valid email address")
     .required("Email is required"),
   name: yup.string().min(3, "Enter your real name").required(),
-  image: yup.string().required(),
 });

@@ -31,8 +31,9 @@ const Signup = () => {
       formData.append("password", values.password);
       formData.append("email", values.email);
       formData.append("name", values.name);
-      formData.append("image", values.image); // تضمين الصورة في البيانات
-
+      if (values.image) {
+        formData.append("image", values.image);
+      }
       try {
         let res = await axios.post(
           "https://tarmeezacademy.com/api/v1/register",

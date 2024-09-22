@@ -3,12 +3,13 @@ import { RiTimeFill } from "react-icons/ri";
 import { LuSubtitles } from "react-icons/lu";
 
 import { LiaCommentSolid } from "react-icons/lia";
-import { memo, useContext } from "react";
+import { memo } from "react";
 import Link from "next/link";
 import DeletePost from "./DeletePost";
 import EditPost from "./EditPost";
 
 const PostCard = ({ item, user }) => {
+  let commentsCount = item.comments_count;
   return (
     <div className="max-w-[526px] mx-3 bg-white dark:bg-cardDark sm:mx-auto mb-3  flex-col flex gap-3 py-2.5 px-4 divide-y-2 dark:divide-slate-600 rounded-lg">
       <div className="flex items-center justify-between   ">
@@ -26,7 +27,9 @@ const PostCard = ({ item, user }) => {
             width={50}
             height={50}
           />
-          <h3 className="dark:text-textSmDark">{item.author.username}</h3>
+          <h3 className="dark:text-textSmDark text-[12px] font-bold break-words  sm:text-base">
+            {item.author.username}
+          </h3>
         </Link>
         <div>
           <span className="text-[12px] flex items-center gap-1 dark:text-textSmDark">

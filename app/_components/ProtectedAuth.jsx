@@ -7,7 +7,7 @@ const ProtectedAuth = () => {
   const router = useRouter();
   const { user } = useContext(UserContextFromRegisteration);
   if (user.token == null) {
-    router.push("/login");
+    // router.push("/login");
   }
 };
 

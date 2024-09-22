@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { RiTimeFill } from "react-icons/ri";
 import { LuSubtitles } from "react-icons/lu";
-import { LiaCommentSolid } from "react-icons/lia";
+
 import Link from "next/link";
 
 const PostDetailsCard = ({ item }) => {

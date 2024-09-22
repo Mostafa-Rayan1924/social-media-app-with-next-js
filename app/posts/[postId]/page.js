@@ -18,13 +18,14 @@ const PostDetails = async ({ params }) => {
   }
 
   return (
-    <div className="my-10  container  dark:bg-darkBg ">
+    <div className="my-10 container dark:bg-darkBg">
       <ProtectedAuth />
-      <h2 className="mb-10  text-xl sm:text-3xl dark:text-textSmDark font-bold uppercase">
+      <h2 className="mb-10 text-xl sm:text-3xl dark:text-textSmDark font-bold uppercase">
         {data.author.username}'S Post
       </h2>
       <PostDetailsCard item={data} />
-      <Comments comments={data?.comments} postId={params.postId} />
+      {/* Pass only comments to Comments component */}
+      <Comments Datacomments={data.comments} postId={params.postId} />
     </div>
   );
 };

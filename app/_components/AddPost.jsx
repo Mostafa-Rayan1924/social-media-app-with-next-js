@@ -27,7 +27,9 @@ const AddPost = () => {
     let formData = new FormData();
     formData.append("title", formik.values.title);
     formData.append("body", formik.values.body);
-    formData.append("image", formik.values.image);
+    if (formik.values.imgage) {
+      formData.append("image", formik.values.image);
+    }
 
     let headers = {
       authorization: "Bearer " + localStorage.getItem("token"),
