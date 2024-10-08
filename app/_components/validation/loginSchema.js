@@ -4,5 +4,5 @@ export let loginSchema = yup.object().shape({
   password: yup
     .string()
     .min(6, "Must be 6 characters at least")
-    .required("Enter your username"),
+    .required("Enter your Password"),
 });
